@@ -1,0 +1,181 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+// Our variables
+$base-font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$background-color:         {{ site.colors.background }};
+$headers-color:            {{ site.colors.headers }};
+$text-color:               {{ site.colors.text }};
+$reverse-text-color:       {{ site.colors.reverse_text }};
+$header-text-color:        {{ site.colors.headers }};
+
+$link-color:               {{ site.colors.link.color }};
+$link-visited-color:       {{ site.colors.link.visited }};
+$link-active-color:        {{ site.colors.link.active }};
+$link-hover-color:         {{ site.colors.link.hover }};
+
+$button-color:             {{ site.colors.button.background }};
+$button-hover-color:       {{ site.colors.button.hover }};
+$button-text-color:        {{ site.colors.button.text }};
+
+$project-accent-color:     {{ site.colors.projects.accent }};
+$card-heading-color:       {{ site.colors.projects.card-heading }};
+
+$banner-background-color:  {{ site.colors.banner.background }};
+$banner-text-color:        {{ site.colors.banner.text }};
+$banner-button-color:      {{ site.colors.banner.button.background }};
+$banner-button-text-color: {{ site.colors.banner.button.text }};
+
+$footer-primary-background-color:    {{ site.colors.footer.primary-background }};
+$footer-secondary-background-color:  {{ site.colors.footer.secondary-background }};
+$footer-text-color:        {{ site.colors.footer.text }};
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+// These contain overrides and additions to the Web Design System
+// (standards.18f.gov, found locally at assets/css/uswds.<version>.css)
+@import
+        "base",
+        "buttons",
+        "navbar",
+        "sidenav",
+        "home",
+        "hero",
+        "iframe",
+        "pages",
+        "projects",
+        "banners",
+        "footer",
+        "team"
+;
+
+/* glossary index */
+.alpha-index {
+    background-color: #f9f9f9;
+    width: 100%;
+    min-height: 65px;
+    padding: 20px 20px;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    overflow: hidden;
+}
+.alpha-index a {
+    min-width: 40px;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    float: left;
+    display: block;
+}
+.alpha-index a:hover{
+    text-decoration: underline;
+}
+
+.back-to-top {
+    float: right;
+    text-align: right;
+}
+
+.back-to-top a{
+    text-decoration: none;
+
+}
+.back-to-top a:hover{
+    text-decoration: underline;
+    color: #ccc;
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
+.disabled a:hover{
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.glossary-entry {
+    margin-top: 30px;
+}
+/* vertical tabs */
+.tab {
+    float: left;
+    background-color: #ffffff;
+    width: 15%;
+    height: auto;
+    border-right: 2px solid #ccc;
+    -webkit-box-shadow: inset -5px 0px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: inset -5px 0px 5px 0px rgba(204,204,204,1);
+    box-shadow: inset -5px 0px 5px 0px rgba(204,204,204,1);
+}
+
+.tab button {
+    display: block;
+    background-color: #e31c3d;
+    color: #ffffff;
+    padding: 20px 10px;
+    width: 100%;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.tab button:hover {
+    background-color: #e59393;
+    color: #444444;
+}
+
+.tab button.active {
+    background-color: #981b1e;
+}
+
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    width: 70%;
+    height: auto;
+
+}
+
+.circle-image {
+    border-radius: 50%;
+    border: 4px solid #337BB7;
+    width: 129px;
+}

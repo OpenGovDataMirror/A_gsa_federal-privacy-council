@@ -1,0 +1,37 @@
+---
+layout: base
+---
+
+<section class="usa-hero" style="background-image: url('{{ page.hero-image | prepend: site.baseurl }}')">
+    <div class="usa-grid">
+      <div class="usa-hero-callout">
+         <h2><span>{{ page.hero-text }}</h2>
+         <p>{{ page.hero-by-line }}</p>
+         <a class="usa-button" href="{{ page.hero-button-link }}">{{ page.hero-button-text }}</a>
+      </div>
+    </div>
+</section>
+
+<section class="usa-grid usa-section">
+  <div class="usa-width-one-whole">
+   {% include homecards.html %}
+  </div>
+</section>
+
+{% if page.banner-heading %}
+<section class="usa-section banner tagline">
+  <div class="usa-grid">
+    <div class="usa-width-one-whole usa-end-row">
+      <h2>{{ page.banner-heading }}</h2>
+      {% if page.banner-text %}
+        <p>{{ page.banner-text }}</p>
+      {% endif %}
+      {% if page.banner-button-text %}
+      <div class="center-content">
+        <a href="{{ page.banner-button-link | prepend: site.baseurl }}" class="usa-button">{{ page.banner-button-text }}</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
